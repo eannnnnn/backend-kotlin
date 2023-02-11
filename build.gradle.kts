@@ -53,16 +53,16 @@ project(":core") {
     dependencies {
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         runtimeOnly("org.postgresql:postgresql")
+        implementation("com.jcraft:jsch:0.1.55")
 
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     }
 }
 
-project(":api"){
+project(":api") {
     dependencies {
         compileOnly(project(":core"))
-
         implementation("org.springframework.boot:spring-boot-starter-web")
     }
 }
