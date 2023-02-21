@@ -1,11 +1,13 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost:5432/postgres"
-    username: "postgres"
-    password: "postgres"
+    url: ""
+    username: ""
+    password: ""
   jpa:
     hibernate:
       ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
@@ -14,7 +16,9 @@ spring:
         format_sql: true
 
 ssh:
-  url:
-  port:
-  username:
-  password:
+  url: ""
+  port: 22
+  username: ""
+  password: ""
+  targetHost: ""
+  targetPort: 5432

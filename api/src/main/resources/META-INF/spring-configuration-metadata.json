@@ -19,6 +19,16 @@
       "name": "ssh.port",
       "type": "java.lang.String",
       "description": "Description for ssh.port."
+    },
+    {
+      "name": "ssh.targetHost",
+      "type": "java.lang.String",
+      "description": "Description for ssh.targetHost."
+    },
+    {
+      "name": "ssh.targetPort",
+      "type": "java.lang.String",
+      "description": "Description for ssh.targetPort."
     }
   ]
 }

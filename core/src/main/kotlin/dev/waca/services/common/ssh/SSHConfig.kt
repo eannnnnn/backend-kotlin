@@ -1,6 +1,6 @@
 package dev.waca.services.common.ssh
 
-import org.springframework.beans.factory.annotation.Autowired
+import org.slf4j.LoggerFactory
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.context.annotation.Bean
@@ -12,14 +12,13 @@ import javax.sql.DataSource
 @Configuration
 @Profile("local")
 open class SSHConfig(private val sshTunnel: SSHTunnel) {
-
+private val logger = LoggerFactory.getLogger(SSHConfig::class.java)
     @Primary
     @Bean("dataSource")
     open fun dataSource(properties:DataSourceProperties ): DataSource {
         val forwardPort = sshTunnel.connection()
         val url = properties.url.replace("5432", forwardPort.toString())
-        println(url)
-
+        logger.info("DATABASE SSH TUNNEL =============> {}", url)
         return DataSourceBuilder.create()
             .url(url)
             .username(properties.username)
