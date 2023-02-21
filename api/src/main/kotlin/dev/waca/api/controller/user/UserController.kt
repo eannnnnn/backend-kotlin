@@ -10,14 +10,11 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("User Controller")
 class UserController(
     private val env: Environment,
-    private val sshConfig: SSHConfig
 ) {
 
 
     @GetMapping
     fun getUser(): String {
-        println(env.getProperty("ssh.url"))
-        println(sshConfig.url)
         return "abc"
     }
 }

@@ -26,6 +26,11 @@ subprojects {
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
         annotationProcessor("org.projectlombok:lombok")
+        implementation("com.jcraft:jsch:0.1.55")
+        runtimeOnly("org.postgresql:postgresql")
+
+        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+        implementation("org.springframework.boot:spring-boot-starter-web")
 
         testImplementation(kotlin("test"))
     }
@@ -51,10 +56,7 @@ subprojects {
 
 project(":core") {
     dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         runtimeOnly("org.postgresql:postgresql")
-        implementation("com.jcraft:jsch:0.1.55")
-
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     }
@@ -63,6 +65,5 @@ project(":core") {
 project(":api") {
     dependencies {
         compileOnly(project(":core"))
-        implementation("org.springframework.boot:spring-boot-starter-web")
     }
 }

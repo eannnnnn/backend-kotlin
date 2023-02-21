@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "ssh.url",
+      "type": "java.lang.String",
+      "description": "Description for ssh.url."
+    },
+    {
+      "name": "ssh.password",
+      "type": "java.lang.String",
+      "description": "Description for ssh.password."
+    },
+    {
+      "name": "ssh.username",
+      "type": "java.lang.String",
+      "description": "Description for ssh.username."
+    },
+    {
+      "name": "ssh.port",
+      "type": "java.lang.String",
+      "description": "Description for ssh.port."
+    }
+  ]
+}
