@@ -32,7 +32,6 @@ subprojects {
         runtimeOnly("org.postgresql:postgresql")
 
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-        implementation("org.springframework.boot:spring-boot-starter-web")
 
         testImplementation(kotlin("test"))
     }
@@ -73,7 +72,15 @@ project(":core") {
 project(":api") {
     dependencies {
         compileOnly(project(":core"))
+        implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.restdocs:spring-restdocs-mockmvc")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
+    }
+}
+
+project(":socket") {
+    dependencies {
+        compileOnly(project(":core"))
+        implementation("org.springframework.boot:spring-boot-starter-websocket")
     }
 }
