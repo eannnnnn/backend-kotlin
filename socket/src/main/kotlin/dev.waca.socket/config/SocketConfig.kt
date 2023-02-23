@@ -6,18 +6,13 @@ import org.springframework.messaging.simp.config.MessageBrokerRegistry
 import org.springframework.web.socket.config.annotation.*
 
 @Configuration
-@EnableWebSocketMessageBroker
+@EnableWebSocket
 open class SocketConfig(
     private val webSocketHandler: WebSocketHandler
-) : WebSocketMessageBrokerConfigurer {
-
-    override fun configureMessageBroker(registry: MessageBrokerRegistry) {
-        registry.enableSimpleBroker("/sub")
-        registry.setApplicationDestinationPrefixes("/pub")
-    }
-
-
-    override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("/stream").setAllowedOrigins("*")
+) : WebSocketConfigurer {
+    override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
+        registry
+            .addHandler(webSocketHandler, "/stream")
+            .setAllowedOrigins("*")
     }
 }
