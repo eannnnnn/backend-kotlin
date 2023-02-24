@@ -17,7 +17,6 @@ fun main(args: Array<String>) {
     if (profile.isNullOrEmpty()) {
         // Profile local
         System.setProperty("spring.profiles.active", "local")
-
     }
     runApplication<SocketApp>(*args)
 }
